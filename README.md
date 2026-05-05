@@ -82,6 +82,27 @@ full transcript text here...
 
 This format is intentionally simple — easy to chunk for RAG, easy to grep, easy to read in any Markdown viewer.
 
+## Vimeo showcases
+
+YouTube isn't the only platform with hours of free training material locked
+behind a "play, don't download" UI. Vimeo showcases are common for paid
+courses and webinar archives, and the transcript story there is messier:
+some videos carry auto-captions, most don't, and the showcase may be
+password-protected.
+
+See [`vimeo/`](vimeo/) for a sibling pipeline that:
+
+1. Pulls Vimeo's auto-generated `.vtt` for every video that has one.
+2. Falls back to local GPU Whisper (`faster-whisper`) for the rest, with a
+   parallel `yt-dlp` audio prefetcher feeding the GPU.
+3. Survives crashes, log-outs, and reboots via a Windows Task Scheduler
+   watchdog that auto-unregisters when the work is done.
+
+The `vimeo/README.md` documents the non-obvious pitfalls (yt-dlp's archive
+file silently doing nothing under `--skip-download`; Windows cp1252 console
+crashes on Unicode video titles; producer/consumer split for keeping the GPU
+fed) and how each is solved.
+
 ## License
 
 MIT.

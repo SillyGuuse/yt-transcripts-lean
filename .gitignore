@@ -4,3 +4,13 @@ __pycache__/
 !README.md
 .venv/
 venv/
+
+# vimeo pipeline working state (don't commit other people's transcripts)
+vimeo/subs/
+vimeo/txt/
+vimeo/audio/
+vimeo/whisper_failed/
+vimeo/download_failed/
+vimeo/attempted.txt
+vimeo/manifest.tsv
+vimeo/*.log

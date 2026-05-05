@@ -1,0 +1,3 @@
+yt-dlp
+faster-whisper
+# Plus ffmpeg on PATH (winget install Gyan.FFmpeg / brew install ffmpeg / apt install ffmpeg)
